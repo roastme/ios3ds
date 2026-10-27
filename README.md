@@ -9,6 +9,11 @@ hardware underneath: every access to an S5L8900 peripheral is made to fault, the
 shim decodes the faulting load or store, runs it against a software model backed
 by real 3DS hardware (SD card, screens, touch, MCU), and resumes.
 
+## Disclaimer
+
+This project was created almost entirely by AI and was not tested extensively.
+Backup NAND before using.
+
 ## Layout
 
 | Path | What it is |
