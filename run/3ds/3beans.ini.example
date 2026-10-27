@@ -1,0 +1,42 @@
+# 3Beans config for the ios3ds harness (copy to 3beans.ini and fix the paths).
+# The real 3beans.ini is machine-specific and ignored by git.
+# boot9Path / boot11Path / nandPath are your own console dumps and are never
+# part of this repository.
+
+fpsLimiter=1
+cartAutoBoot=0
+dspBackend=0
+threadedGpu=0
+gpuRenderer=0
+gpuVtxShader=0
+gpuFragShader=0
+systemType=0
+unitType=0
+
+boot9Path=/path/to/boot9.bin
+boot11Path=/path/to/boot11.bin
+nandPath=/path/to/ctrnand_full.bin
+
+# Paths into this checkout.
+sdPath=ios3ds/out/sd.img
+firmPath=ios3ds/loader/ios_loader.firm
+
+audBufSize=1024
+keyA=65
+keyB=66
+keySelect=8
+keyStart=13
+keyRight=316
+keyLeft=314
+keyUp=315
+keyDown=317
+keyR=50
+keyL=49
+keyX=88
+keyY=89
+keyLRight=68
+keyLLeft=65
+keyLUp=87
+keyLDown=83
+keyLMod=306
+keyHome=32

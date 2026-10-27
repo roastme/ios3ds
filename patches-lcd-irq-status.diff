@@ -1,0 +1,48 @@
+diff --git a/hw/arm/ipod_touch_lcd.c b/hw/arm/ipod_touch_lcd.c
+index f6a3bc6..46e73be 100644
+--- a/hw/arm/ipod_touch_lcd.c
++++ b/hw/arm/ipod_touch_lcd.c
+@@ -18,7 +18,8 @@ static uint64_t s5l8900_lcd_read(void *opaque, hwaddr addr, unsigned size)
+         case 0x14:
+             return s->unknown1;
+         case 0x18:
+-            return s->unknown2;
++            // interrupt status: bit 0 = frame done (vsync)
++            return s->irq_status;
+ 
+         case 0x20:
+             return s->wnd_con;
+@@ -82,8 +83,11 @@ static void s5l8900_lcd_write(void *opaque, hwaddr addr, uint64_t val, unsigned
+             s->unknown1 = val;
+             break;
+         case 0x18:
+-            s->unknown2 = val;
+-            qemu_irq_lower(s->irq);
++            // write-one-to-clear: the driver acks by writing the bits it handled
++            s->irq_status &= ~val;
++            if (!s->irq_status) {
++                qemu_irq_lower(s->irq);
++            }
+             break;
+ 
+         case 0x20:
+@@ -248,6 +252,7 @@ static void refresh_timer_tick(void *opaque)
+ {
+     IPodTouchLCDState *s = (IPodTouchLCDState *)opaque;
+ 
++    s->irq_status |= 1;
+     qemu_irq_raise(s->irq);
+ 
+     timer_mod(s->refresh_timer, qemu_clock_get_ns(QEMU_CLOCK_VIRTUAL) + NANOSECONDS_PER_SECOND / LCD_REFRESH_RATE_FREQUENCY);
+diff --git a/include/hw/arm/ipod_touch_lcd.h b/include/hw/arm/ipod_touch_lcd.h
+index cc3490b..2460481 100644
+--- a/include/hw/arm/ipod_touch_lcd.h
++++ b/include/hw/arm/ipod_touch_lcd.h
+@@ -28,6 +28,7 @@ typedef struct IPodTouchLCDState
+     uint32_t lcd_con2;
+     uint32_t unknown1;
+     uint32_t unknown2;
++    uint32_t irq_status;
+ 
+     uint32_t wnd_con;
+ 

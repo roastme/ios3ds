@@ -1,0 +1,391 @@
+c0053fb8  kernel                       mrcmi p15, #0, r7, c14, c3, #0     _iokit_server_routine+0x260
+c005a6cc  kernel                       mcr p15, #0, r3, c7, c10, #4       _ml_arm_sleep+0x20
+c005a9c4  kernel                       mcr p15, #0, r4, c7, c10, #4       _cpu_idle+0x7c
+c005a9c8  kernel                       mcr p15, #0, r4, c7, c0, #4        _cpu_idle+0x80
+c005ac58  kernel                       mrc p15, #0, r1, c0, c0, #0        _cpu_start+0x34
+c005ac70  kernel                       mrc p15, #0, r3, c0, c2, #1        _cpu_start+0x4c
+c005add4  kernel                       mrc p15, #0, r4, c0, c0, #1        _cpuid_info+0x140
+c005bf84  kernel                       mcrhs p15, #0, r0, c0, c14, #6     _lck_rw_try_lock_shared_ext+0x14
+c005e050  kernel                       mcr p15, #0, r0, c15, c2, #4       _Reset_low_ppmr+0x20
+c00601f0  kernel                       mrc p15, #0, r3, c6, c0, #0        _fleh_swi+0x150
+c0060288  kernel                       mrc p15, #0, r5, c5, c0, #1        _fleh_prefabt+0x30
+c00602d4  kernel                       mrc p15, #0, r5, c5, c0, #1        _fleh_prefabt+0x7c
+c006032c  kernel                       mrc p15, #0, r5, c5, c0, #0        _fleh_dataabt+0x34
+c0060330  kernel                       mrc p15, #0, r6, c6, c0, #0        _fleh_dataabt+0x38
+c0060380  kernel                       mrc p15, #0, r5, c5, c0, #0        _fleh_dataabt+0x88
+c0060384  kernel                       mrc p15, #0, r6, c6, c0, #0        _fleh_dataabt+0x8c
+c006074c  kernel                       mcr p15, #0, r4, c2, c0, #0        _reset_jmp+0xc
+c006077c  kernel                       mcr p15, #0, r5, c7, c10, #1       _reset_jmp+0x3c
+c0060784  kernel                       mcr p15, #0, r1, c7, c10, #4       _reset_jmp+0x44
+c0060788  kernel                       mrc p15, #0, fp, c1, c0, #0        _reset_jmp+0x48
+c0060790  kernel                       mcr p15, #0, r1, c7, c10, #4       _reset_jmp+0x50
+c00607a4  kernel                       mcr p15, #0, fp, c1, c0, #0        _reset_jmp+0x64
+c00607d8  kernel                       mcr p15, #0, r4, c2, c0, #0        _start_cpu+0x20
+c00607dc  kernel                       mcr p15, #0, r4, c2, c0, #1        _start_cpu+0x24
+c00607e4  kernel                       mcr p15, #0, r5, c2, c0, #2        _start_cpu+0x2c
+c006080c  kernel                       mcr p15, #0, r4, c2, c0, #0        __start+0x20
+c0060810  kernel                       mcr p15, #0, r4, c2, c0, #1        __start+0x24
+c0060818  kernel                       mcr p15, #0, r5, c2, c0, #2        __start+0x2c
+c00608fc  kernel                       mcr p15, #0, fp, c7, c14, #2       __start+0x110
+c006091c  kernel                       mcr p15, #0, fp, c8, c7, #0        __start+0x130
+c0060920  kernel                       mcr p15, #0, fp, c7, c5, #0        __start+0x134
+c0060928  kernel                       mcr p15, #0, fp, c3, c0, #0        __start+0x13c
+c006092c  kernel                       mrc p15, #0, fp, c1, c0, #0        __start+0x140
+c0060948  kernel                       mcr p15, #0, fp, c1, c0, #0        __start+0x15c
+c006094c  kernel                       mrc p15, #0, r5, c0, c0, #0        __start+0x160
+c0061068  kernel                       mrc p15, #0, r0, c1, c0, #2        _init_vfp+0x0
+c0061074  kernel                       mcr p15, #0, r0, c1, c0, #2        _init_vfp+0xc
+c00610b4  kernel                       mcr p15, #0, r0, c7, c7, #0        _invalidate_mmu_cache+0x4
+c00610d0  kernel                       mcr p15, #0, r0, c7, c5, #1        _invalidate_mmu_cache_region+0x14
+c00610d4  kernel                       mcr p15, #0, r0, c7, c6, #1        _invalidate_mmu_cache_region+0x18
+c00610ec  kernel                       mcr p15, #0, r0, c7, c6, #0        _invalidate_mmu_dcache+0x4
+c0061108  kernel                       mcr p15, #0, r0, c7, c6, #1        _invalidate_mmu_dcache_region+0x14
+c0061120  kernel                       mcr p15, #0, r0, c7, c5, #0        _invalidate_mmu_icache+0x4
+c006113c  kernel                       mcr p15, #0, r0, c7, c5, #1        _invalidate_mmu_icache_region+0x14
+c0061154  kernel                       mcr p15, #0, r0, c7, c5, #6        _invalidate_branch_target_cache+0x4
+c0061160  kernel                       mcr p15, #0, r0, c7, c10, #4       _drain_write_buffer+0x4
+c006116c  kernel                       mcr p15, #0, r0, c7, c10, #2       _clean_mmu_dcache+0x4
+c006118c  kernel                       mcr p15, #0, r3, c7, c10, #4       _clean_mmu_dcache+0x24
+c00611c4  kernel                       mcr p15, #0, r0, c7, c10, #1       _clean_mmu_dcache_region+0x14
+c00611d8  kernel                       mcr p15, #0, r3, c7, c10, #4       _clean_mmu_dcache_region+0x28
+c00611e4  kernel                       mcr p15, #0, r0, c7, c14, #2       _cleanflush_mmu_dcache+0x4
+c0061204  kernel                       mcr p15, #0, r0, c7, c10, #4       _cleanflush_mmu_dcache+0x24
+c006123c  kernel                       mcr p15, #0, r0, c7, c14, #1       _cleanflush_mmu_dcache_region+0x14
+c0061250  kernel                       mcr p15, #0, r3, c7, c10, #4       _cleanflush_mmu_dcache_region+0x28
+c00612b4  kernel                       mcr p15, #0, r0, c8, c7, #0        _flush_mmu_tlb+0x4
+c00612bc  kernel                       mcr p15, #0, r0, c8, c7, #1        _flush_mmu_tlb_entry+0x0
+c00612c4  kernel                       mcr p15, #0, r0, c8, c7, #2        _flush_mmu_tlb_asid+0x0
+c00612cc  kernel                       mcr p15, #0, r0, c2, c0, #0        _set_mmu_ttb+0x0
+c00612d4  kernel                       mrc p15, #0, r0, c2, c0, #0        _get_mmu_ttb+0x0
+c00612dc  kernel                       mcr p15, #0, r0, c3, c0, #0        _set_mmu_dac+0x0
+c00612e4  kernel                       mrc p15, #0, r0, c1, c0, #0        _get_mmu_control+0x0
+c00612ec  kernel                       mcr p15, #0, r0, c1, c0, #0        _set_mmu_control+0x0
+c00612f4  kernel                       mcr p15, #0, r0, c13, c0, #1       _set_context_id+0x0
+c0063e88  kernel                       mcr p15, #0, r2, c15, c12, #1      _pmc_restore+0x40
+c0063e90  kernel                       mcr p15, #0, r2, c15, c12, #2      _pmc_restore+0x48
+c0063e98  kernel                       mcr p15, #0, r2, c15, c12, #3      _pmc_restore+0x50
+c0063ea0  kernel                       mcr p15, #0, r3, c15, c12, #0      _pmc_restore+0x58
+c0064060  kernel                       mrc p15, #0, r3, c15, c12, #2      _pmc_counter_read+0x54
+c0064070  kernel                       mrc p15, #0, r3, c15, c12, #1      _pmc_counter_read+0x64
+c0064078  kernel                       mrc p15, #0, r3, c15, c12, #3      _pmc_counter_read+0x6c
+c00640d4  kernel                       mcr p15, #0, r5, c15, c12, #2      _pmc_counter_write+0x54
+c00640e0  kernel                       mcr p15, #0, r5, c15, c12, #1      _pmc_counter_write+0x60
+c00640ec  kernel                       mcr p15, #0, r5, c15, c12, #3      _pmc_counter_write+0x6c
+c0064130  kernel                       mrc p15, #0, r3, c15, c12, #0      _pmc_control_read+0x38
+c0064178  kernel                       mcr p15, #0, r4, c15, c12, #0      _pmc_control_write+0x38
+c0064220  kernel                       mrc p15, #0, r2, c15, c12, #0      _pmc_save+0x3c
+c0064228  kernel                       mrc p15, #0, r2, c15, c12, #1      _pmc_save+0x44
+c0064230  kernel                       mrc p15, #0, r2, c15, c12, #2      _pmc_save+0x4c
+c0064238  kernel                       mrc p15, #0, r2, c15, c12, #3      _pmc_save+0x54
+c0068934  kernel                       mrc p15, #0, r5, c15, c12, #0      _chudxnu_cpu_free+0x630
+c0068980  kernel                       mrc p15, #0, r5, c15, c12, #3      _chudxnu_cpu_free+0x67c
+c006898c  kernel                       mrc p15, #0, r5, c15, c12, #2      _chudxnu_cpu_free+0x688
+c0068998  kernel                       mrc p15, #0, r5, c15, c12, #1      _chudxnu_cpu_free+0x694
+c0068a00  kernel                       mcr p15, #0, r5, c15, c12, #0      _chudxnu_cpu_free+0x6fc
+c0068a40  kernel                       mcr p15, #0, r5, c15, c12, #3      _chudxnu_cpu_free+0x73c
+c0068a4c  kernel                       mcr p15, #0, r5, c15, c12, #2      _chudxnu_cpu_free+0x748
+c0068a58  kernel                       mcr p15, #0, r5, c15, c12, #1      _chudxnu_cpu_free+0x754
+c012b35c  kernel                       mcr p15, #0, r0, c7, c10, #4       _OSSynchronizeIO+0x4
+c014df48  kernel                       mcrrmi p15, #3, r6, fp, c0         __ZN9IODTNVRAM15initOFVariablesEv+0x192
+c02682bc  kernel                       mcrrvs p15, #0, sl, r3, c1         _kld_file_lookupsymbol+0xec
+c029ea7c  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029eac0  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029eae4  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029eb08  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029eb54  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029ebb4  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029ec60  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029ed0c  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029ed2c  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029ed6c  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029edac  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c029ee44  com.apple.iokit.IOStreamFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c02afa68  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c12, #7    ?
+c02afa78  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c3, #7     ?
+c02afa9c  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c11, #7    ?
+c02afae0  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c6, #7     ?
+c02afae8  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c9, #7     ?
+c02afaf0  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c13, #7    ?
+c02afaf4  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c15, #6    ?
+c02afafc  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c15, #7    ?
+c02afb1c  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c14, #6    ?
+c02afb38  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c14, #7    ?
+c02afb3c  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c0, #7     ?
+c02afb40  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c5, #7     ?
+c02afb9c  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c2, #7     ?
+c02afba0  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c7, #7     ?
+c02afba8  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c10, #7    ?
+c02afbb4  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c13, #6    ?
+c02afbd0  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c8, #7     ?
+c02b1b70  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c1, #7     ?
+c02b1bc8  com.apple.driver.FairPlayIOKit mcrle p15, #1, r1, c12, c9, #7     ?
+c02b2ae0  com.apple.driver.FairPlayIOKit mcreq p15, #1, ip, c7, c14, #7     ?
+c02b2ae4  com.apple.driver.FairPlayIOKit mcreq p15, #1, ip, c7, c15, #7     ?
+c02cd4e4  com.apple.driver.FairPlayIOKit mrc p15, #1, lr, c12, c7, #1       ?
+c02cfa38  com.apple.driver.FairPlayIOKit mrcvc p15, #3, fp, c11, c14, #3    ?
+c02d8e00  com.apple.driver.FairPlayIOKit mrcle p15, #7, r8, c5, c0, #7      ?
+c02df728  com.apple.driver.FairPlayIOKit mcrreq p15, #1, r7, r6, c0         ?
+c02dfc58  com.apple.driver.FairPlayIOKit mrrclt p15, #7, fp, r6, c13        ?
+c02e064c  com.apple.driver.FairPlayIOKit mcr p15, #2, pc, c14, c1, #2       ?
+c02f8c94  com.apple.driver.AppleAMC    mrcmi p15, #2, r5, c4, c4, #1      ?
+c0334dac  com.apple.iokit.AppleARMIISAudio mrcmi p15, #2, r5, c10, c15, #2    ?
+c0334e60  com.apple.iokit.AppleARMIISAudio mrcmi p15, #2, r5, c10, c15, #2    ?
+c0334e8c  com.apple.iokit.AppleARMIISAudio mrcmi p15, #2, r5, c10, c15, #2    ?
+c0334f20  com.apple.iokit.AppleARMIISAudio mrcmi p15, #2, r5, c10, c15, #2    ?
+c03378a0  com.apple.driver.AppleARMPL080DMAC mcr p15, #0, r3, c7, c10, #4       ?
+c033b428  com.apple.driver.AppleARMPL192VIC mrcmi p15, #2, r5, c10, c15, #2    ?
+c033b6c4  com.apple.driver.AppleARMPL192VIC mrcmi p15, #2, r5, c10, c15, #2    ?
+c033b730  com.apple.driver.AppleARMPL192VIC mrcmi p15, #2, r5, c10, c15, #2    ?
+c033b774  com.apple.driver.AppleARMPL192VIC mrcmi p15, #2, r5, c10, c15, #2    ?
+c033b7b8  com.apple.driver.AppleARMPL192VIC mrcmi p15, #2, r5, c10, c15, #2    ?
+c033b8ec  com.apple.driver.AppleARMPL192VIC mcrrmi p15, #5, r5, r7, c15        ?
+c0358ea8  com.apple.driver.AppleBluetooth mrcmi p15, #2, r5, c10, c15, #2    ?
+c0358edc  com.apple.driver.AppleBluetooth mrcmi p15, #2, r5, c10, c15, #2    ?
+c0358ef0  com.apple.driver.AppleBluetooth mrcmi p15, #2, r5, c10, c15, #2    ?
+c0358f30  com.apple.driver.AppleBluetooth mrcmi p15, #2, r5, c10, c15, #2    ?
+c0358f70  com.apple.driver.AppleBluetooth mrcmi p15, #2, r5, c10, c15, #2    ?
+c036dc94  com.apple.driver.AppleEmbeddedAccelerometer mrcmi p15, #2, r5, c10, c15, #2    ?
+c036dd34  com.apple.driver.AppleEmbeddedAccelerometer mrcmi p15, #2, r5, c10, c15, #2    ?
+c036dd5c  com.apple.driver.AppleEmbeddedAccelerometer mrcmi p15, #2, r5, c10, c15, #2    ?
+c036dda0  com.apple.driver.AppleEmbeddedAccelerometer mrcmi p15, #2, r5, c10, c15, #2    ?
+c036deb4  com.apple.driver.AppleEmbeddedAccelerometer mrcmi p15, #2, r5, c10, c15, #2    ?
+c036df24  com.apple.driver.AppleEmbeddedAccelerometer mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372bac  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372ca4  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372d2c  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372e1c  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372e6c  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372e94  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372ebc  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372f48  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c0372f98  com.apple.driver.AppleEmbeddedLightSensor mrcmi p15, #2, r5, c10, c15, #2    ?
+c038a280  com.apple.driver.AppleH264BPD mcr p15, #0, r3, c7, c10, #4       ?
+c038d878  com.apple.driver.AppleH264BPD mrchs p15, #3, r6, c2, c2, #3      ?
+c038db10  com.apple.driver.AppleH264BPD mcrhs p15, #3, r6, c13, c4, #3     ?
+c038e5bc  com.apple.driver.AppleH264BPD mrchs p15, #3, r6, c2, c2, #3      ?
+c039def4  com.apple.driver.AppleJPEGDriver mcr p15, #0, r3, c7, c10, #4       ?
+c039e374  com.apple.driver.AppleJPEGDriver mcr p15, #0, r3, c7, c10, #4       ?
+c03a4988  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a4a18  com.apple.driver.AppleMBX    mcr p15, #0, r4, c7, c10, #4       ?
+c03a4a24  com.apple.driver.AppleMBX    mcr p15, #0, r4, c7, c10, #4       ?
+c03a4a34  com.apple.driver.AppleMBX    mcr p15, #0, r4, c7, c10, #4       ?
+c03a4a40  com.apple.driver.AppleMBX    mcr p15, #0, r4, c7, c10, #4       ?
+c03a4a80  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a4a94  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a4adc  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a4b1c  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a4bc0  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a565c  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a56ec  com.apple.driver.AppleMBX    mcr p15, #0, r4, c7, c10, #4       ?
+c03a56f8  com.apple.driver.AppleMBX    mcr p15, #0, r4, c7, c10, #4       ?
+c03a5708  com.apple.driver.AppleMBX    mcr p15, #0, r4, c7, c10, #4       ?
+c03a5714  com.apple.driver.AppleMBX    mcr p15, #0, r4, c7, c10, #4       ?
+c03a5754  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a5768  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a57b0  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a57f0  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a5894  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a8130  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03a87b8  com.apple.driver.AppleMBX    mcr p15, #0, r2, c7, c10, #4       ?
+c03a96a4  com.apple.driver.AppleMBX    mcr p15, #0, r5, c7, c10, #4       ?
+c03a9e00  com.apple.driver.AppleMBX    mcr p15, #0, r3, c7, c10, #4       ?
+c03b402c  com.apple.driver.AppleMBX    mcrmi p15, #2, r5, c9, c1, #1      ?
+c03b4700  com.apple.driver.AppleMBX    mcrvs p15, #3, r6, c9, c0, #3      ?
+c03c0388  com.apple.driver.AppleMPVDDriver mcr p15, #0, r3, c7, c10, #4       ?
+c03c13d4  com.apple.driver.AppleMPVDDriver mrrcmi p15, #4, r5, r6, c4         ?
+c03eb6c0  com.apple.iokit.IO80211Family mcrgt p15, #2, r6, c10, c6, #1     ?
+c03eccf4  com.apple.iokit.IO80211Family mcrpl p15, #1, r2, c15, c1, #3     ?
+c03ece04  com.apple.iokit.IO80211Family mcrls p15, #2, r4, c15, c1, #6     ?
+c03ecfa8  com.apple.iokit.IO80211Family mcrne p15, #0, r0, c15, c1, #0     ?
+c03f3c38  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c03f3c5c  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c03f3d10  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c03f3e00  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c03f3e5c  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c03f3ed0  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c03f3ef0  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c03f3f2c  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c03f3f68  com.apple.iokit.IOSDIOFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c0407670  com.apple.driver.AppleMRVL868x mcrvs p15, #3, r6, c9, c0, #3      ?
+c0407dcc  com.apple.driver.AppleMRVL868x mrcmi p15, #2, r5, c3, c4, #2      ?
+c0407de0  com.apple.driver.AppleMRVL868x mrcmi p15, #2, r5, c3, c4, #2      ?
+c0411f08  com.apple.driver.AppleMRVL868x mcr p15, #0, r0, c1, c0, #0        ?
+c0411f24  com.apple.driver.AppleMRVL868x mcr p15, #0, r0, c7, c0, #4        ?
+c0411f54  com.apple.driver.AppleMRVL868x mcr p15, #0, r0, c7, c0, #4        ?
+c0411f5c  com.apple.driver.AppleMRVL868x mrc p15, #0, r0, c1, c0, #0        ?
+c0411f64  com.apple.driver.AppleMRVL868x mcr p15, #0, r0, c1, c0, #0        ?
+c0422724  com.apple.driver.AppleMRVL868x mrcvc p15, #3, r7, c14, c14, #3    ?
+c0428bc0  com.apple.driver.AppleMRVL868x mcr p15, #0, r0, c1, c0, #0        ?
+c042f76c  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042f7e0  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042f860  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042f928  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042f998  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042fa74  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042fb90  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042fc58  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042fdc0  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c042ff30  com.apple.iokit.IOCameraFamily mrcmi p15, #2, r5, c10, c15, #2    ?
+c045d33c  com.apple.iokit.IOFlashStorage mcrrvs p15, #4, r4, r6, c9         ?
+c045d3f0  com.apple.iokit.IOFlashStorage mcrrvs p15, #4, r4, r6, c9         ?
+c0471460  com.apple.driver.AppleNANDFTL mcrrvs p15, #4, r5, r6, c12        ?
+c048e78c  com.apple.driver.AppleS5L8900X mcr p15, #0, r4, c7, c10, #4       ?
+c048e7ac  com.apple.driver.AppleS5L8900X mcr p15, #0, r3, c7, c10, #4       ?
+c049cac0  com.apple.driver.AppleS5L8900XFMC mcr p15, #0, r3, c7, c10, #4       ?
+c04a204c  com.apple.driver.AppleS5L8900XFMC mcr p15, #0, r3, c7, c10, #4       ?
+c04a9244  com.apple.driver.AppleS5L8900XFMC mrcne p15, #2, r1, c0, c1, #2      ?
+c04ac874  com.apple.driver.AppleS5L8900XFMC mcrvs p15, #3, r6, c15, c3, #3     ?
+c04c9bbc  com.apple.iokit.IOUSBDeviceFamily mcrvs p15, #3, r6, c9, c0, #3      ?
+c0505864  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c050592c  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c05059c4  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505ab8  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505b84  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505bac  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505be0  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505c14  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505d5c  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505dd8  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505df8  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505e18  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505e38  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505e58  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c0505ea8  com.apple.driver.AppleSMSC91C111 mrcmi p15, #2, r5, c10, c15, #2    ?
+c050b908  com.apple.driver.AppleS5L8900XIpodHAL mcrvs p15, #3, r6, c9, c0, #3      ?
+c050ba54  com.apple.driver.AppleS5L8900XIpodHAL mcrvs p15, #3, r6, c9, c0, #3      ?
+c050bee4  com.apple.driver.AppleS5L8900XIpodHAL mcrvs p15, #3, r6, c9, c0, #3      ?
+c052ed3c  com.apple.driver.AppleUSBEHCI mrcvs p15, #3, r4, c7, c15, #2     ?
+c052edf8  com.apple.driver.AppleUSBEHCI mrcvs p15, #3, r4, c7, c15, #2     ?
+c052f6d4  com.apple.driver.AppleUSBEHCI mcrvs p15, #3, r6, c9, c0, #3      ?
+c0538874  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c05388f4  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c0538958  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c053897c  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c0538a24  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c0538a58  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c0538acc  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c0538bb4  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c0538c30  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c0538c90  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c0538db8  com.apple.driver.AppleUSBHub mcrvs p15, #2, r6, c5, c2, #3      ?
+c0538df4  com.apple.driver.AppleUSBHub mrcmi p15, #2, r5, c10, c15, #2    ?
+c053b780  com.apple.driver.AppleUSBComposite mrcmi p15, #2, r5, c10, c15, #2    ?
+c053b7f0  com.apple.driver.AppleUSBComposite mrcmi p15, #2, r5, c10, c15, #2    ?
+c053b9d8  com.apple.driver.AppleUSBComposite mrcmi p15, #2, r5, c10, c15, #2    ?
+c053baf4  com.apple.driver.AppleUSBComposite mrcmi p15, #2, r5, c10, c15, #2    ?
+c053bbe8  com.apple.driver.AppleUSBComposite mrcmi p15, #2, r5, c10, c15, #2    ?
+c053bcdc  com.apple.driver.AppleUSBComposite mrcmi p15, #2, r5, c10, c15, #2    ?
+c053bfe4  com.apple.driver.AppleUSBComposite mrcmi p15, #2, r5, c10, c15, #2    ?
+c054ce30  com.apple.nke.ppp            mrclt p15, #6, sl, c3, c10, #2     ?
+c054ce50  com.apple.nke.ppp            mrcge p15, #2, fp, c2, c11, #6     ?
+c054cfb8  com.apple.nke.ppp            mrclo p15, #7, r2, c11, c2, #3     ?
+c054d898  com.apple.nke.ppp            mrcmi p15, #2, r5, c10, c15, #2    ?
+c054db10  com.apple.nke.ppp            mrcmi p15, #2, r5, c10, c15, #2    ?
+c054de50  com.apple.nke.ppp            mcrvs p15, #3, r5, c9, c0, #3      ?
+c0557f0c  com.apple.nke.pptp           mrcmi p15, #2, r5, c10, c15, #2    ?
+c0557f40  com.apple.nke.pptp           mrcmi p15, #2, r5, c10, c15, #2    ?
+c0557f74  com.apple.nke.pptp           mrcmi p15, #2, r5, c10, c15, #2    ?
+c055a29c  com.apple.nke.ipif           mcrvs p15, #3, r5, c9, c4, #3      ?
+c055a94c  com.apple.nke.ipif           mrcmi p15, #2, r5, c10, c15, #2    ?
+c055a980  com.apple.nke.ipif           mrcmi p15, #2, r5, c10, c15, #2    ?
+c055a9b4  com.apple.nke.ipif           mrcmi p15, #2, r5, c10, c15, #2    ?
+c055aa50  com.apple.nke.ipif           mrcmi p15, #2, r5, c10, c15, #2    ?
+c055aab4  com.apple.nke.ipif           mrcmi p15, #2, r5, c10, c15, #2    ?
+c055ab18  com.apple.nke.ipif           mrcmi p15, #2, r5, c10, c15, #2    ?
+c055ae30  com.apple.nke.ipif           mcrrmi p15, #5, r5, r7, c15        ?
+
+# summary (op p15,opc1,CRn,CRm,opc2: count, first users)
+mcr p15,0,c0,c14,6            1  kernel:_lck_rw_try_lock_shared_ext+0x14
+mcr p15,0,c1,c0,0             6  com.apple.driver.AppleMRVL868x:?, kernel:__start+0x15c, kernel:_reset_jmp+0x64, kernel:_set_mmu_control+0x0
+mcr p15,0,c1,c0,2             1  kernel:_init_vfp+0xc
+mcr p15,0,c13,c0,1            1  kernel:_set_context_id+0x0
+mcr p15,0,c15,c1,0            1  com.apple.iokit.IO80211Family:?
+mcr p15,0,c15,c12,0           3  kernel:_chudxnu_cpu_free+0x6fc, kernel:_pmc_control_write+0x38, kernel:_pmc_restore+0x58
+mcr p15,0,c15,c12,1           3  kernel:_chudxnu_cpu_free+0x754, kernel:_pmc_counter_write+0x60, kernel:_pmc_restore+0x40
+mcr p15,0,c15,c12,2           3  kernel:_chudxnu_cpu_free+0x748, kernel:_pmc_counter_write+0x54, kernel:_pmc_restore+0x48
+mcr p15,0,c15,c12,3           3  kernel:_chudxnu_cpu_free+0x73c, kernel:_pmc_counter_write+0x6c, kernel:_pmc_restore+0x50
+mcr p15,0,c15,c2,4            1  kernel:_Reset_low_ppmr+0x20
+mcr p15,0,c2,c0,0             4  kernel:__start+0x20, kernel:_reset_jmp+0xc, kernel:_set_mmu_ttb+0x0, kernel:_start_cpu+0x20
+mcr p15,0,c2,c0,1             2  kernel:__start+0x24, kernel:_start_cpu+0x24
+mcr p15,0,c2,c0,2             2  kernel:__start+0x2c, kernel:_start_cpu+0x2c
+mcr p15,0,c3,c0,0             2  kernel:__start+0x13c, kernel:_set_mmu_dac+0x0
+mcr p15,0,c7,c0,4             3  com.apple.driver.AppleMRVL868x:?, kernel:_cpu_idle+0x80
+mcr p15,0,c7,c10,1            2  kernel:_clean_mmu_dcache_region+0x14, kernel:_reset_jmp+0x3c
+mcr p15,0,c7,c10,2            1  kernel:_clean_mmu_dcache+0x4
+mcr p15,0,c7,c10,4           43  com.apple.driver.AppleARMPL080DMAC:?, com.apple.driver.AppleH264BPD:?, com.apple.driver.AppleJPEGDriver:?, com.apple.driver.AppleMBX:?, com.apple.driver.AppleMPVDDriver:?, com.apple.driver.AppleS5L8900X:? ...
+mcr p15,0,c7,c14,1            1  kernel:_cleanflush_mmu_dcache_region+0x14
+mcr p15,0,c7,c14,2            2  kernel:__start+0x110, kernel:_cleanflush_mmu_dcache+0x4
+mcr p15,0,c7,c5,0             2  kernel:__start+0x134, kernel:_invalidate_mmu_icache+0x4
+mcr p15,0,c7,c5,1             2  kernel:_invalidate_mmu_cache_region+0x14, kernel:_invalidate_mmu_icache_region+0x14
+mcr p15,0,c7,c5,6             1  kernel:_invalidate_branch_target_cache+0x4
+mcr p15,0,c7,c6,0             1  kernel:_invalidate_mmu_dcache+0x4
+mcr p15,0,c7,c6,1             2  kernel:_invalidate_mmu_cache_region+0x18, kernel:_invalidate_mmu_dcache_region+0x14
+mcr p15,0,c7,c7,0             1  kernel:_invalidate_mmu_cache+0x4
+mcr p15,0,c8,c7,0             2  kernel:__start+0x130, kernel:_flush_mmu_tlb+0x4
+mcr p15,0,c8,c7,1             1  kernel:_flush_mmu_tlb_entry+0x0
+mcr p15,0,c8,c7,2             1  kernel:_flush_mmu_tlb_asid+0x0
+mcr p15,1,c12,c0,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c1,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c10,7           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c11,7           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c12,7           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c13,6           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c13,7           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c14,6           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c14,7           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c15,6           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c15,7           1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c2,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c3,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c5,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c6,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c7,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c8,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c12,c9,7            2  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c15,c1,3            1  com.apple.iokit.IO80211Family:?
+mcr p15,1,c7,c14,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,1,c7,c15,7            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,2,c10,c6,1            1  com.apple.iokit.IO80211Family:?
+mcr p15,2,c14,c1,2            1  com.apple.driver.FairPlayIOKit:?
+mcr p15,2,c15,c1,6            1  com.apple.iokit.IO80211Family:?
+mcr p15,2,c5,c2,3             1  com.apple.driver.AppleUSBHub:?
+mcr p15,2,c9,c1,1             1  com.apple.driver.AppleMBX:?
+mcr p15,3,c13,c4,3            1  com.apple.driver.AppleH264BPD:?
+mcr p15,3,c15,c3,3            1  com.apple.driver.AppleS5L8900XFMC:?
+mcr p15,3,c9,c0,3             8  com.apple.driver.AppleMBX:?, com.apple.driver.AppleMRVL868x:?, com.apple.driver.AppleS5L8900XIpodHAL:?, com.apple.driver.AppleUSBEHCI:?, com.apple.iokit.IOUSBDeviceFamily:?, com.apple.nke.ppp:?
+mcr p15,3,c9,c4,3             1  com.apple.nke.ipif:?
+mcrr p15,0,c1                 1  kernel:_kld_file_lookupsymbol+0xec
+mcrr p15,1,c0                 1  com.apple.driver.FairPlayIOKit:?
+mcrr p15,3,c0                 1  kernel:__ZN9IODTNVRAM15initOFVariablesEv+0x192
+mcrr p15,4,c12                1  com.apple.driver.AppleNANDFTL:?
+mcrr p15,4,c9                 2  com.apple.iokit.IOFlashStorage:?
+mcrr p15,5,c15                2  com.apple.driver.AppleARMPL192VIC:?, com.apple.nke.ipif:?
+mrc p15,0,c0,c0,0             2  kernel:__start+0x160, kernel:_cpu_start+0x34
+mrc p15,0,c0,c0,1             1  kernel:_cpuid_info+0x140
+mrc p15,0,c0,c2,1             1  kernel:_cpu_start+0x4c
+mrc p15,0,c1,c0,0             4  com.apple.driver.AppleMRVL868x:?, kernel:__start+0x140, kernel:_get_mmu_control+0x0, kernel:_reset_jmp+0x48
+mrc p15,0,c1,c0,2             1  kernel:_init_vfp+0x0
+mrc p15,0,c14,c3,0            1  kernel:_iokit_server_routine+0x260
+mrc p15,0,c15,c12,0           3  kernel:_chudxnu_cpu_free+0x630, kernel:_pmc_control_read+0x38, kernel:_pmc_save+0x3c
+mrc p15,0,c15,c12,1           3  kernel:_chudxnu_cpu_free+0x694, kernel:_pmc_counter_read+0x64, kernel:_pmc_save+0x44
+mrc p15,0,c15,c12,2           3  kernel:_chudxnu_cpu_free+0x688, kernel:_pmc_counter_read+0x54, kernel:_pmc_save+0x4c
+mrc p15,0,c15,c12,3           3  kernel:_chudxnu_cpu_free+0x67c, kernel:_pmc_counter_read+0x6c, kernel:_pmc_save+0x54
+mrc p15,0,c2,c0,0             1  kernel:_get_mmu_ttb+0x0
+mrc p15,0,c5,c0,0             2  kernel:_fleh_dataabt+0x34, kernel:_fleh_dataabt+0x88
+mrc p15,0,c5,c0,1             2  kernel:_fleh_prefabt+0x30, kernel:_fleh_prefabt+0x7c
+mrc p15,0,c6,c0,0             3  kernel:_fleh_dataabt+0x38, kernel:_fleh_dataabt+0x8c, kernel:_fleh_swi+0x150
+mrc p15,1,c12,c7,1            1  com.apple.driver.FairPlayIOKit:?
+mrc p15,2,c0,c1,2             1  com.apple.driver.AppleS5L8900XFMC:?
+mrc p15,2,c10,c15,2         104  com.apple.driver.AppleARMPL192VIC:?, com.apple.driver.AppleBluetooth:?, com.apple.driver.AppleEmbeddedAccelerometer:?, com.apple.driver.AppleEmbeddedLightSensor:?, com.apple.driver.AppleSMSC91C111:?, com.apple.driver.AppleUSBComposite:? ...
+mrc p15,2,c2,c11,6            1  com.apple.nke.ppp:?
+mrc p15,2,c3,c4,2             2  com.apple.driver.AppleMRVL868x:?
+mrc p15,2,c4,c4,1             1  com.apple.driver.AppleAMC:?
+mrc p15,3,c11,c14,3           1  com.apple.driver.FairPlayIOKit:?
+mrc p15,3,c14,c14,3           1  com.apple.driver.AppleMRVL868x:?
+mrc p15,3,c2,c2,3             2  com.apple.driver.AppleH264BPD:?
+mrc p15,3,c7,c15,2            2  com.apple.driver.AppleUSBEHCI:?
+mrc p15,6,c3,c10,2            1  com.apple.nke.ppp:?
+mrc p15,7,c11,c2,3            1  com.apple.nke.ppp:?
+mrc p15,7,c5,c0,7             1  com.apple.driver.FairPlayIOKit:?
+mrrc p15,4,c4                 1  com.apple.driver.AppleMPVDDriver:?
+mrrc p15,7,c13                1  com.apple.driver.FairPlayIOKit:?

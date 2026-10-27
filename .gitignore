@@ -1,0 +1,112 @@
+# ios3ds - ignore rules for publishing the source tree.
+#
+# Tracked: loader/, shim/, tools/ (scripts), the analysis notes, nokextd/,
+# patches-*.diff and the small run/*.sh harness scripts.
+# Everything below is generated output, Apple/Nintendo firmware or dumps taken
+# from it, machine-specific config, or an external checkout.
+
+# ------------------------------------------------ Apple firmware extracts
+# Verbatim dumps out of the iPhone OS 1.1 IPSW (prelink info plist, device
+# tree). Not ours to redistribute; regenerate from your own IPSW if needed.
+/notes/prelink-info.xml
+/notes/devicetree-ipsw.txt
+/notes/devicetree-ipsw-full.txt
+
+# QEMU's accel/tcg/cputlb.c with the QEMU_MMIOSTAT patch applied (the pre-edit
+# copy). Third-party GPL-2 code: take it from qemu-ios at the matching commit.
+/build/cputlb.c.orig
+
+# Patched copy of devos50/qemu-ios-generate-nor's generate_nor.c (5-line env change
+# to the boot-args string). Upstream states no licence, so it is not redistributed:
+# re-apply the change to ref/qemu-ios-generate-nor/generate_nor.c yourself.
+/build/generate_nor_patched.c
+
+# --------------------------------------------------------------- build output
+/build/generate_nor
+/build/generate_nand
+/build/xnu/obj/
+/build/xnu/sym/
+/build/xnu/dst/
+/build/xnu/*.log
+/out/
+/scratch/
+
+# Compiler / linker / python artifacts (loader/, shim/, tools/)
+*.o
+*.d
+*.a
+*.elf
+*.map
+*.firm
+*.pyc
+__pycache__/
+.venv/
+venv/
+
+# Tools built on the host
+/tools/hosttest/dabt_test
+
+# ------------------------------------------------------------------ run output
+# Generated boot images, logs, captures and the extracted NAND tree.
+/run/qemu/nand/
+/run/qemu/patched/
+/run/**/*.json
+/run/**/*.bin
+/run/**/*.log
+/run/**/*.out
+/run/**/*.ppm
+/run/**/*.png
+/run/**/*.txt
+/run/**/*.sock
+run8.log
+
+# Machine-specific 3Beans config: absolute paths to boot9/boot11/NAND.
+# Commit a sanitised 3beans.ini.example instead.
+/run/3ds/3beans.ini
+
+# ------------------------------------------------ firmware and console dumps
+# Apple IPSW/rootfs material, N3DS bootROM/OTP/NAND, cartridge dumps.
+*.ipsw
+*.dmg
+*.img
+*.nand
+*.nor
+*.cia
+*.nca
+*.3ds
+*.3dsx
+*.cci
+*.bin
+boot9.bin
+boot11.bin
+ctrnand_full.bin
+otp.bin
+movable.sed
+
+# -------------------------------------------- downloaded / extracted material
+/dl/
+/fw/
+/ios421/
+
+# --------------------------------------------- external checkouts (own repos)
+# These are separate git histories, not files of this project. Publish them
+# separately or add them as submodules, e.g.:
+#   git submodule add <url> xnu3ds
+/ref/
+/xnu3ds/
+
+# ------------------------------------------------------ secrets and identity
+*.p12
+*.pfx
+*.mobileprovision
+*.key
+id_rsa*
+
+# ------------------------------------------------------------ editor/OS junk
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~

@@ -1,0 +1,212 @@
+#include "ios_config.h"
+#include "scu.h"
+
+#define CFG11_SOCINFO   (0x10140FFC)	/* bit 1: New 3DS */
+#define L2C_BASE        (0x17E10000)	/* L2C-310 (New 3DS only) */
+#define L2C_CTRL        (0x100)
+#define L2C_SYNC        (0x730)
+#define L2C_INV_WAY     (0x77C)
+
+@ LCD Frambuffers stuff (Physical Addresses)
+#define LCD_FB_PDC0           (0x10400400)
+#define LCD_FB_PDC1           (0x10400500)
+#define LCD_FB_A_ADDR_OFFSET  (0x68)
+#define LCD_FB_FORMAT_OFFSET  (0x70)
+#define LCD_FB_PDC0_FORMAT    (0x80341)
+#define LCD_FB_PDC1_FORMAT    (0x80301)
+#define LCD_FB_SELECT_OFFSET  (0x78)
+#define LCD_FB_STRIDE_OFFSET  (0x90)
+#define LCD_FB_PDC0_STRIDE    (0x2D0)
+#define LCD_FB_B_ADDR_OFFSET  (0x94)
+#define FB_TOP_SIZE           (400 * 240 * 3)
+#define FB_BOT_SIZE           (320 * 240 * 3)
+#define FB_BASE_PA            (VRAM_BASE)
+#define FB_TOP_LEFT1          (FB_BASE_PA)
+#define FB_TOP_LEFT2          (FB_TOP_LEFT1  + FB_TOP_SIZE)
+#define FB_TOP_RIGHT1         (FB_TOP_LEFT2  + FB_TOP_SIZE)
+#define FB_TOP_RIGHT2         (FB_TOP_RIGHT1 + FB_TOP_SIZE)
+#define FB_BOT_1              (FB_TOP_RIGHT2 + FB_TOP_SIZE)
+#define FB_BOT_2              (FB_BOT_1      + FB_BOT_SIZE)
+
+	.arm
+	.section .text.start
+	.cpu mpcore
+
+	.global _start
+_start:
+	@ Disable FIQs, IRQs, imprecise aborts
+	@ and enter SVC mode
+	cpsid aif, #0x13
+
+	@ Invalidate Entire Instruction Cache,
+	@ also flushes the branch target cache
+	mov r0, #0
+	mcr p15, 0, r0, c7, c5, 0
+
+	@ Clear and Invalidate Entire Data Cache
+	mov r0, #0
+	mcr p15, 0, r0, c7, c14, 0
+
+	@ Data Synchronization Barrier
+	mov r0, #0
+	mcr p15, 0, r0, c7, c10, 4
+
+	@ Disable the MMU and data cache
+	@ (the MMU is already disabled)
+	mrc p15, 0, r1, c1, c0, 0
+	bic r1, r1, #0b101
+	mcr p15, 0, r1, c1, c0, 0
+
+	@ Clear exclusive records
+	clrex
+
+	ldr r0, =SYNC_ADDR
+	mov r1, #0
+	str r1, [r0]
+	str r1, [r0, #4]
+	str r1, [r0, #8]
+	str r1, [r0, #12]
+
+	@ Disable SCU
+	ldr r0, =SCU_BASE_ADDR
+	ldr r1, [r0, #SCU_CTRL_REG]
+	bic r1, r1, #SCU_CTRL_ENABLE
+	str r1, [r0, #SCU_CTRL_REG]
+
+	@ Invalidate SCU ways
+	ldr r1, =0xFF
+	str r1, [r0, #SCU_INV_ALL_REG]
+
+	@ New 3DS: turn the L2C-310 outer cache off, so XNU's writes are not held
+	@ there out of the ARM9's sight. Its contents belong to the previous FIRM,
+	@ so they are discarded (invalidate), not written back over our image.
+	ldr r2, =L2C_STATE_ADDR
+	mvn r1, #0
+	ldr r3, =CFG11_SOCINFO
+	ldrh r3, [r3]
+	tst r3, #2
+	beq l2c_done
+	ldr r0, =L2C_BASE
+	ldr r1, [r0, #L2C_CTRL]
+	mov r3, #0
+	str r3, [r0, #L2C_CTRL]
+	mcr p15, 0, r3, c7, c10, 4
+	ldr r3, =0xFFFF
+	str r3, [r0, #L2C_INV_WAY]
+l2c_inv_wait:
+	ldr r3, [r0, #L2C_INV_WAY]
+	cmp r3, #0
+	bne l2c_inv_wait
+	mov r3, #0
+	str r3, [r0, #L2C_SYNC]
+l2c_sync_wait:
+	ldr r3, [r0, #L2C_SYNC]
+	tst r3, #1
+	bne l2c_sync_wait
+l2c_done:
+	str r1, [r2]
+
+	@ CRT initialization
+	ldr r0, =__bss_start
+	mov r1, #0
+	ldr r2, =__bss_end
+	add sp, r2, #1024
+	sub r2, r2, r0
+	bl memset
+
+	bl enable_cores23
+
+	@ Trigger CPU1
+	ldr r3, =0x1FFFFFDC
+	adr r4, smp_start
+	str r4, [r3]
+
+	ldr r3, =(SCU_BASE_ADDR + 0x1F00)
+	ldr r4, =((2 << 16) | 1)
+	str r4, [r3]
+
+	@@@@@ Map Framebuffers @@@@@
+
+	@@@ Top screen @@@
+	ldr r0, =LCD_FB_PDC0
+
+	@ Left eye
+	ldr r1, =FB_TOP_LEFT1
+	str r1, [r0, #(LCD_FB_A_ADDR_OFFSET + 0)]
+	ldr r1, =FB_TOP_LEFT2
+	str r1, [r0, #(LCD_FB_A_ADDR_OFFSET + 4)]
+
+	@ Right eye
+	ldr r1, =FB_TOP_RIGHT1
+	str r1, [r0, #(LCD_FB_B_ADDR_OFFSET + 0)]
+	ldr r1, =FB_TOP_RIGHT2
+	str r1, [r0, #(LCD_FB_B_ADDR_OFFSET + 4)]
+
+	@ Select framebuffer 0 and adjust format/stride
+	mov r1, #0
+	str r1, [r0, #LCD_FB_SELECT_OFFSET]
+	ldr r1, =LCD_FB_PDC0_FORMAT
+	str r1, [r0, #LCD_FB_FORMAT_OFFSET]
+	mov r1, #LCD_FB_PDC0_STRIDE
+	str r1, [r0, #LCD_FB_STRIDE_OFFSET]
+
+	@@@ Bottom screen @@@
+	ldr r0, =LCD_FB_PDC1
+
+	ldr r1, =FB_BOT_1
+	str r1, [r0, #(LCD_FB_A_ADDR_OFFSET + 0)]
+	ldr r1, =FB_BOT_2
+	str r1, [r0, #(LCD_FB_A_ADDR_OFFSET + 4)]
+
+	@ Select framebuffer 0, RGB8 like the top screen (the ARM9 draws both)
+	mov r1, #0
+	str r1, [r0, #LCD_FB_SELECT_OFFSET]
+	ldr r1, =LCD_FB_PDC1_FORMAT
+	str r1, [r0, #LCD_FB_FORMAT_OFFSET]
+	mov r1, #LCD_FB_PDC0_STRIDE
+	str r1, [r0, #LCD_FB_STRIDE_OFFSET]
+
+	ldr r0, =STAGE_ADDR
+	mov r1, #STAGE_ARM11_UP
+	str r1, [r0]
+
+	@@@@@ Jump to the kernel @@@@@
+
+	@ Wait until the ARM9 posts the shim entry (physical address)
+	ldr r0, =SYNC_ADDR
+wait_arm9:
+	ldr r1, [r0]
+	cmp r1, #0
+	beq wait_arm9
+
+	@ Jump to the S5L shim (MMU off, SVC, IRQ/FIQ masked)
+	ldr r2, =STAGE_ADDR
+	mov r3, #STAGE_ARM11_JUMP
+	str r3, [r2]
+	mov r0, #0
+	bx r1
+
+smp_start:
+	@ Get the CPUID
+	mrc p15, 0, r0, c0, c0, 5
+	ands r0, r0, #3
+	@ Fall through into smp_boot
+
+.global smp_boot
+.align 4
+smp_boot:
+	@ r0 is the current CPU ID
+	ldr r1, =SYNC_ADDR
+	add r1, r1, r0, lsl #2
+
+.Lwait_smpboot:
+	ldr r12, [r1]
+	cmp r12, #0
+	wfeeq
+	beq .Lwait_smpboot
+
+	bx r12
+.type smp_boot, STT_FUNC
+.size smp_boot, . - smp_boot
+
+	.ltorg
